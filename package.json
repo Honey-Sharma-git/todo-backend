@@ -1,0 +1,17 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "Backend for Todo App and Todo CMS",
+  "keywords": [
+    "Todo",
+    "App",
+    "Backend"
+  ],
+  "license": "ISC",
+  "author": "Honey Sharma",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
