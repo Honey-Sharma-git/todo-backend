@@ -8,13 +8,18 @@ const sendResponse = require("./utils/response");
 
 env.config();
 const PORT = process.env.PORT ?? 8000;
-const HOSTNAME = process.env.HOSTNAME ?? "localhost";
 
 connectDB();
 
 const routes = [todo];
 
 const server = http.createServer(async (req, res) => {
+  if (req.url === "/health") {
+    res.writeHead(200);
+    res.end("OK");
+    return;
+  }
+
   let isHandled = false;
 
   for (const routeHandler of routes) {
@@ -27,6 +32,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, HOSTNAME, () => {
-  console.log(`Server is listening on port: ${PORT} and hostname: ${HOSTNAME}`);
+server.listen(PORT, () => {
+  console.log(`Server is listening on port: ${PORT}`);
 });
